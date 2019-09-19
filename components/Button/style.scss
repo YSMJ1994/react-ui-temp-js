@@ -1,0 +1,113 @@
+@import "../style/themes/default";
+@import "../style/mixins/index";
+
+$prefix: #{$prefix-cls}-btn;
+$paddingRatio: 0.8;
+@function getPadding($fontSize) {
+	@return ceil($fontSize & $paddingRatio)
+}
+@mixin getSize($fontSize) {
+	line-height: 2.2;
+	font-size: $font-size-default;
+	padding: 0 getPadding($fontSize);
+}
+@mixin getType($color, $borderColor: $color) {
+	border-color: $borderColor;
+	color: $color;
+
+	&.#{$prefix}__status--fill {
+		background-color: $color;
+		color: $white;
+		&.#{$prefix}__status--loading:before {
+			border-top-color: $white;
+		}
+	}
+	&.btnLoading:before {
+		border-top-color: $color;
+	}
+}
+.#{$prefix} {
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+	transition: all 0.15s;
+	outline: 0;
+	border: $border-base;
+	border-radius: 4px;
+	@include getType($font-color-base, $border-color-base);
+	@include getSize($font-size-default);
+
+	&:active {
+		border-color: $primary-color;
+		color: $primary-color;
+	}
+	
+	&:hover {
+		opacity: 0.8;
+	}
+
+	&.#{$prefix}__status--loading {
+		opacity: 0.6;
+		cursor: auto;
+		
+		&:before {
+			content: ' ';
+			display: inline-block;
+			line-height: inherit;
+			width: 1em;
+			height: 1em;
+			border-radius: 50%;
+			vertical-align: middle;
+			border: 2px solid transparent;
+			border-top-color: $border-color-base;
+			margin-right: 0.2em;
+			position: relative;
+			top: -1px;
+			@include withRotate(scale(0.8));
+		}
+	}
+	&.#{$prefix}__status--disabled {
+		opacity: 1;
+		color: $disabled-color;
+		background-color: $disabled-bg-color;
+		border-color: $border-color-base;
+		cursor: not-allowed;
+		&:before {
+			border-top-color: $border-color-base !important;
+		}
+	}
+	&.#{$prefix}__status--fill {
+		color: $white;
+		background-color: $gray-6;
+
+		&.#{$prefix}__status--loading:before {
+			border-top-color: $white;
+		}
+	}
+	&.#{$prefix}__type--default {
+		@include getType($font-color-base, $border-color-base);
+	}
+	&.#{$prefix}__type--success {
+		@include getType($success-color);
+	}
+	&.#{$prefix}__type--warning {
+		@include getType($warning-color);
+	}
+	&.#{$prefix}__type--error {
+		@include getType($error-color);
+	}
+	&.#{$prefix}__type--text {
+		line-height: inherit;
+		border: 0;
+		color: $font-color-base;
+	}
+	&.#{$prefix}__size--default {
+		@include getSize($font-size-default);
+	}
+	&.#{$prefix}__size--large {
+		@include getSize($font-size-large);
+	}
+	&.#{$prefix}__size--small {
+		@include getSize($font-size-small);
+	}
+}
