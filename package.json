@@ -2,6 +2,7 @@
   "name": "unknown",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "start": "react-ui-scripts start",
     "build": "react-ui-scripts build",
