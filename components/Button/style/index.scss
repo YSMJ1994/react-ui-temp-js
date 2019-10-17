@@ -1,10 +1,10 @@
-@import "../style/themes/default";
-@import "../style/mixins/index";
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
 
 $prefix: #{$prefix-cls}-btn;
 $paddingRatio: 0.8;
 @function getPadding($fontSize) {
-	@return ceil($fontSize & $paddingRatio)
+	@return ceil($fontSize * $paddingRatio)
 }
 @mixin getSize($fontSize) {
 	line-height: 2.2;
@@ -18,6 +18,8 @@ $paddingRatio: 0.8;
 	&.#{$prefix}__status--fill {
 		background-color: $color;
 		color: $white;
+		border-color: $color;
+		
 		&.#{$prefix}__status--loading:before {
 			border-top-color: $white;
 		}
@@ -79,28 +81,13 @@ $paddingRatio: 0.8;
 	&.#{$prefix}__status--fill {
 		color: $white;
 		background-color: $gray-6;
+		border-color: $gray-6;
 
 		&.#{$prefix}__status--loading:before {
 			border-top-color: $white;
 		}
 	}
-	&.#{$prefix}__type--default {
-		@include getType($font-color-base, $border-color-base);
-	}
-	&.#{$prefix}__type--success {
-		@include getType($success-color);
-	}
-	&.#{$prefix}__type--warning {
-		@include getType($warning-color);
-	}
-	&.#{$prefix}__type--error {
-		@include getType($error-color);
-	}
-	&.#{$prefix}__type--text {
-		line-height: inherit;
-		border: 0;
-		color: $font-color-base;
-	}
+	
 	&.#{$prefix}__size--default {
 		@include getSize($font-size-default);
 	}
@@ -110,4 +97,21 @@ $paddingRatio: 0.8;
 	&.#{$prefix}__size--small {
 		@include getSize($font-size-small);
 	}
+}
+.#{$prefix}__type--default {
+	@include getType($font-color-base, $border-color-base);
+}
+.#{$prefix}__type--success {
+	@include getType($success-color);
+}
+.#{$prefix}__type--warning {
+	@include getType($warning-color);
+}
+.#{$prefix}__type--error {
+	@include getType($error-color);
+}
+.#{$prefix}__type--text {
+	line-height: inherit;
+	border: 0;
+	color: $font-color-base;
 }
