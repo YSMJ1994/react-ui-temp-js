@@ -14,9 +14,6 @@
     "prop-types": "^15.7.2",
     "react-ui-scripts": "^0.1.15"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
