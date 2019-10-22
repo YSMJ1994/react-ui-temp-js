@@ -8,7 +8,7 @@
     "build": "react-ui-scripts build",
     "build-doc": "react-ui-scripts build-doc",
     "build-library": "react-ui-scripts build-library",
-    "test": "react-ui-scripts test"
+    "publish": "cd build-library && git init && yarn publish"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
