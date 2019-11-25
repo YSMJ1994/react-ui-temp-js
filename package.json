@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "prop-types": "^15.7.2",
-    "react-ui-scripts": "^0.1.29"
+    "react-ui-scripts": "^0.1.31"
   },
   "browserslist": {
     "production": [
