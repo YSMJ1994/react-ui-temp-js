@@ -1,4 +1,4 @@
----
+---config
 order: 1
 name: 测试1
 ---

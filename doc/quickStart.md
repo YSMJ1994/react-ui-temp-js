@@ -1,4 +1,4 @@
----
+---config
 order: 0
 name: 快速开始
 ---

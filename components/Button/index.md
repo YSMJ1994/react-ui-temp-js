@@ -1,4 +1,4 @@
----
+---config
 order: 0 
 type: 通用
 name: Button
