@@ -1,4 +1,4 @@
----
+---config
 order: 1
 title: 测试
 ---

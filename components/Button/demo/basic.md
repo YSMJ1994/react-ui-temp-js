@@ -1,4 +1,4 @@
----
+---config
 order: 0
 title: 按钮类型
 ---
